@@ -3,5 +3,5 @@
 #include "clientes.h"
 
 void cadastrarCliente(Cliente **lista) {
-    printf("Função cadastrarCliente chamada!\n");
+    printf("Funcao cadastrarCliente chamada!\n");
 }

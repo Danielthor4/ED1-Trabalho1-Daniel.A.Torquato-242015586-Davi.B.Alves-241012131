@@ -8,7 +8,6 @@ typedef struct Cliente {
     struct Cliente *prox;
 } Cliente;
 
-/* protótipo da função */
 void cadastrarCliente(Cliente **lista);
 
 #endif
