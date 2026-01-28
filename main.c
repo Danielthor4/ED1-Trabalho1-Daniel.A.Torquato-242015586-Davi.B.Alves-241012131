@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "clientes.h"
+#include "produtos.h"
+#include "compras.h"
 
 int main() {
     printf("Escolha a sua opção:\n");
