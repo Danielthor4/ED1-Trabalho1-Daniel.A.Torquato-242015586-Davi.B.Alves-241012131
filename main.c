@@ -29,7 +29,7 @@ int main() {
         scanf("%d", &escolha_cliente);
         switch (escolha_cliente) {
         case 1:
-            printf("Você escolheu a opção 1 - Gerenciamento de clientes\n");
+            printf("Você escolheu a opção 1 - Cadastrar cliente\n");
             break;
         case 2:
             printf("Você escolheu a opção 2 - Listar todos os clientes\n");
