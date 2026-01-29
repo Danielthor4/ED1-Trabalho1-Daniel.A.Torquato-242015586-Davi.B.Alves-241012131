@@ -28,7 +28,7 @@ void listarProdutos(Produto *lista){
  
 }
 
-Produto* buscarProduto(Produto *lista, int codigo){
+Produto* buscarProduto(Produto *lista){
     int codigo;
     printf("\n");
     printf("Digite o codigo do produto que deseja buscar: ");
