@@ -8,4 +8,8 @@ typedef struct Compra {
     struct Compra *prox;
 } Compra;
 
+void incluirCompra(Compra **lista);
+void listarCompras(Compra *lista);
+void removerCompra(Compra **lista);
+
 #endif

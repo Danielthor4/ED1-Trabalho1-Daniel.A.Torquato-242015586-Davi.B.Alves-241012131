@@ -27,6 +27,7 @@ int main() {
     switch (funcionalidade) {
 
         case 1:
+            printf("\n");
             printf("Voce escolheu a opcao 1 - Gerenciamento de clientes\n");
             printf("Escolha a sua proxima opcao:\n");
             printf("1. Cadastrar cliente\n");
@@ -42,16 +43,16 @@ int main() {
                     cadastrarCliente(&listaClientes);
                     break;
                 case 2:
-                    printf("Voce escolheu a opcao 2 - Listar todos os clientes\n");
+                    listarClientes(&listaClientes);
                     break;
                 case 3:
-                    printf("Voce escolheu a opcao 3 - Buscar cliente pelo CPF\n");
+                    buscarCliente(&listaClientes);
                     break;
                 case 4:
-                    printf("Voce escolheu a opcao 4 - Editar dados de um cliente\n");
+                    editarCliente(&listaClientes);
                     break;
                 case 5:
-                    printf("Voce escolheu a opcao 5 - Remover cliente\n");
+                    removerCliente(&listaClientes);
                     break;
                 default:
                     break;
@@ -59,6 +60,7 @@ int main() {
             break;
 
         case 2:
+            printf("\n");
             printf("Voce escolheu a opcao 2 - Produtos\n");
             printf("Escolha a sua proxima opcao:\n");
             printf("1. Cadastrar produto\n");
@@ -71,19 +73,23 @@ int main() {
 
             switch (escolha_produto) {
                 case 1:
-                    printf("Voce escolheu a opcao 1 - Cadastrar produto\n");
+                    cadastrarProduto(&listaProdutos);
                     break;
                 case 2:
-                    printf("Voce escolheu a opcao 2 - Listar todos os produtos\n");
+                    listarProdutos(listaProdutos);
                     break;
-                case 3:
-                    printf("Voce escolheu a opcao 3 - Buscar produto pelo codigo\n");
+                case 3: {
+                    int codigo;
+                    printf("Digite o codigo do produto que deseja buscar: ");
+                    scanf("%d", &codigo);
+                    buscarProduto(listaProdutos, codigo);
                     break;
+                    }
                 case 4:
-                    printf("Voce escolheu a opcao 4 - Editar dados de um produto\n");
+                    editarProduto(listaProdutos);
                     break;
                 case 5:
-                    printf("Voce escolheu a opcao 5 - Remover produto\n");
+                    removerProduto(&listaProdutos);
                     break;
                 default:
                     break;
@@ -91,6 +97,7 @@ int main() {
             break;
 
         case 3:
+            printf("\n");
             printf("Voce escolheu a opcao 3 - Modo compra\n");
             printf("Escolha a sua proxima opcao:\n");
             printf("1. Incluir produtos que deseja no carrinho\n");
@@ -101,13 +108,13 @@ int main() {
 
             switch (escolha_compra) {
                 case 1:
-                    printf("Voce escolheu a opcao 1 - Incluir produtos que deseja no carrinho\n");
+                    incluirCompra(&listaCompras);
                     break;
                 case 2:
-                    printf("Voce escolheu a opcao 2 - Listar produtos do carrinho do cliente\n");
+                    listarCompras(listaCompras);
                     break;
                 case 3:
-                    printf("Voce escolheu a opcao 3 - Retirar produtos do carrinho do cliente\n");
+                    removerCompra(&listaCompras);
                     break;
                 default:
                     break;

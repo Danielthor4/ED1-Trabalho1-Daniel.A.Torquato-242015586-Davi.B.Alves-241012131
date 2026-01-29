@@ -13,6 +13,5 @@ void listarProdutos(Produto *lista);
 Produto* buscarProduto(Produto *lista, int codigo);
 void editarProduto(Produto *lista);
 void removerProduto(Produto **lista);
-void liberarProdutos(Produto *lista);
 
 #endif

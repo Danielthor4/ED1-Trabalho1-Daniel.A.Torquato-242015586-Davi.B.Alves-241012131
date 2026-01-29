@@ -2,8 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void cadastrarProduto(Produto **Lista){
+    printf("\n");
+    printf("Funcao cadastrarProduto chamada!\n");
+}
 
 void listarProdutos(Produto *lista){
+    printf("\n");
+    printf("Funcao listarProdutos chamada!\n");
+    
     if (lista == NULL) {
         printf("Nenhum produto cadastrado.\n");
         return;
@@ -19,4 +26,20 @@ void listarProdutos(Produto *lista){
         atual = atual->prox;
     }
  
+}
+
+Produto* buscarProduto(Produto *lista, int codigo){
+    printf("\n");
+    printf("Funcao buscarProduto chamada!\n");
+    return NULL;
+}
+
+void editarProduto(Produto *lista){
+    printf("\n");
+    printf("Funcao editarProduto chamada!\n");
+}
+
+void removerProduto(Produto **lista){
+    printf("\n");
+    printf("Funcao removerProduto chamada!\n");
 }

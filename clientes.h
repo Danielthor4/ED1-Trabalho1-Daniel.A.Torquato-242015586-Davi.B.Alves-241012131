@@ -9,5 +9,9 @@ typedef struct Cliente {
 } Cliente;
 
 void cadastrarCliente(Cliente **lista);
+void listarClientes(Cliente **lista);
+void buscarCliente(Cliente **lista);
+void editarCliente(Cliente **lista);
+void removerCliente(Cliente **lista);
 
 #endif
