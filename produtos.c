@@ -29,7 +29,10 @@ void listarProdutos(Produto *lista){
 }
 
 Produto* buscarProduto(Produto *lista, int codigo){
+    int codigo;
     printf("\n");
+    printf("Digite o codigo do produto que deseja buscar: ");
+    scanf("%d", &codigo);
     printf("Funcao buscarProduto chamada!\n");
     return NULL;
 }

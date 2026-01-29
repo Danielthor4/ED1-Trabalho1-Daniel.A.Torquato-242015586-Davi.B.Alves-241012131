@@ -78,13 +78,9 @@ int main() {
                 case 2:
                     listarProdutos(listaProdutos);
                     break;
-                case 3: {
-                    int codigo;
-                    printf("Digite o codigo do produto que deseja buscar: ");
-                    scanf("%d", &codigo);
-                    buscarProduto(listaProdutos, codigo);
+                case 3: 
+                    buscarProduto(listaProdutos);
                     break;
-                    }
                 case 4:
                     editarProduto(listaProdutos);
                     break;
