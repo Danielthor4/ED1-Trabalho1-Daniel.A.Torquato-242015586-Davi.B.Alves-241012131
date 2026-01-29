@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "clientes.h"
+#include "utils.h"
 
 void cadastrarCliente(Cliente **lista) {
     Cliente *novo = (Cliente *) malloc(sizeof(Cliente));
@@ -15,18 +16,23 @@ void cadastrarCliente(Cliente **lista) {
 
     printf("CPF: ");
     scanf(" %14[^\n]", novo->cpf);
+    limparBuffer();
 
     printf("Nome: ");
     scanf(" %99[^\n]", novo->nome);
+    limparBuffer();
 
     printf("Email: ");
     scanf(" %99[^\n]", novo->email);
+    limparBuffer();
 
     printf("Telefone: ");
     scanf(" %19[^\n]", novo->telefone);
+    limparBuffer();
 
     printf("Data de nascimento (dd/mm/aaaa): ");
     scanf(" %10[^\n]", novo->dataNascimento);
+    limparBuffer();
 
     novo->prox = *lista;
     *lista = novo;
@@ -65,6 +71,7 @@ void buscarCliente(Cliente **lista) {
     char cpfBuscado[20];
     printf("\nDigite o CPF do cliente: ");
     scanf(" %19s", cpfBuscado);
+    limparBuffer();
 
     Cliente *atual = *lista;
 
@@ -93,6 +100,7 @@ void editarCliente(Cliente **lista) {
     char cpf[15];
     printf("\nDigite o CPF do cliente que deseja editar: ");
     scanf(" %[^\n]", cpf);
+    limparBuffer();
 
     Cliente *atual = *lista;
 
@@ -126,21 +134,25 @@ void editarCliente(Cliente **lista) {
         case 1:
             printf("Digite o novo nome: ");
             scanf(" %[^\n]", atual->nome);
+            limparBuffer();
             break;
 
         case 2:
             printf("Digite o novo email: ");
             scanf(" %[^\n]", atual->email);
+            limparBuffer();
             break;
 
         case 3:
             printf("Digite o novo telefone: ");
             scanf(" %[^\n]", atual->telefone);
+            limparBuffer();
             break;
 
         case 4:
             printf("Digite a nova data de nascimento (dd/mm/aaaa): ");
             scanf(" %[^\n]", atual->dataNascimento);
+            limparBuffer();
             break;
 
         case 0:
@@ -164,6 +176,7 @@ void removerCliente(Cliente **lista) {
     char cpfBusca[15];
     printf("\nDigite o CPF do cliente a remover: ");
     scanf("%s", cpfBusca);
+    limparBuffer();
 
     Cliente *atual = *lista;
     Cliente *anterior = NULL;

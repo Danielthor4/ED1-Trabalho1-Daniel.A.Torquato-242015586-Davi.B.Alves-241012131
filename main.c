@@ -6,8 +6,6 @@
 #include "compras.h"
 #include "utils.h"
 
-
-
 int main() {
     setlocale(LC_ALL, "");
 
