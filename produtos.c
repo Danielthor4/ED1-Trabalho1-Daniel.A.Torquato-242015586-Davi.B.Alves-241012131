@@ -1,4 +1,5 @@
 #include "produtos.h"
+#include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -11,6 +12,7 @@ void cadastrarProduto(Produto **Lista){
 
     printf("digite o codigo do produto: ");
     scanf("%d", &novo->codigo);
+    limparBuffer();
 
     if (codigoExiste(*Lista, novo->codigo)){
         printf("Erro: Codigo ja cadastrado!.\n");
@@ -20,12 +22,15 @@ void cadastrarProduto(Produto **Lista){
 
     printf("digite o nome do produto: ");
     scanf(" %99[^\n]", novo->nome); 
+    limparBuffer();
 
     printf("digite o preco do produto: ");
     scanf("%f", &novo->preco);
+    limparBuffer();
 
     printf("digite a quantidade do produto: ");
     scanf("%d", &novo->quantidade);
+    limparBuffer();
 
     novo->prox = *Lista;
     *Lista = novo;
@@ -70,6 +75,7 @@ Produto* buscarProduto(Produto *lista){
     int codigo;
     printf("\nDigite o codigo do produto que deseja buscar: ");
     scanf("%d", &codigo);
+    limparBuffer();
     
     Produto *atual = lista;
 
@@ -104,12 +110,15 @@ void editarProduto(Produto *lista){
 
     printf("\nDigite o novo nome do produto");
     scanf(" %99[^\n]", produto->nome);
+    limparBuffer();
 
     printf("Digite o novo preco do produto: ");
     scanf("%f", &produto->preco);
+    limparBuffer();
 
     printf("Digite a nova quantidade do produto: ");
     scanf("%d", &produto->quantidade);
+    limparBuffer();
 
     printf("\nProduto editado com sucesso!\n");
 }
@@ -123,6 +132,7 @@ void removerProduto(Produto **lista){
     int codigo;
     printf("\nDigite o codigo do produto que deseja remover: ");
     scanf("%d", &codigo);
+    limparBuffer();
 
     Produto *atual = *lista;
     Produto *anterior = NULL;

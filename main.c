@@ -4,6 +4,9 @@
 #include "clientes.h"
 #include "produtos.h"
 #include "compras.h"
+#include "utils.h"
+
+
 
 int main() {
     setlocale(LC_ALL, "");
@@ -27,6 +30,7 @@ int main() {
         printf("0. Sair\n");
 
         scanf("%d", &funcionalidade);
+        limparBuffer();
 
         switch (funcionalidade) {
 
@@ -43,6 +47,7 @@ int main() {
                 printf("0. Sair\n");
 
                 scanf("%d", &escolha_cliente);
+                limparBuffer();
 
                 switch (escolha_cliente) {
                     case 1:
@@ -86,6 +91,7 @@ int main() {
                 printf("0. Sair\n");
 
                 scanf("%d", &escolha_produto);
+                limparBuffer();
 
                 switch (escolha_produto) {
                     case 1:
@@ -127,6 +133,7 @@ int main() {
                 printf("0. Sair\n");
 
                 scanf("%d", &escolha_compra);
+                limparBuffer();
 
                 switch (escolha_compra) {
                     case 1:
@@ -162,10 +169,12 @@ int main() {
         
         if (continuar == 1) {
             printf("\nDeseja continuar no sistema? (1 - Sim / 0 - Nao): ");
-            scanf("%d", &continuar); 
+            scanf("%d", &continuar);
+            limparBuffer(); 
             printf("\n");
         }
     }
     printf("Saindo do sistema...\n");
     return 0;
 }
+
