@@ -3,7 +3,8 @@
 
 typedef struct Produto{
     int codigo;
-    char *nome;
+    int quantidade;
+    char nome[100];
     float preco;
     struct Produto *prox;
 } Produto;
@@ -11,6 +12,7 @@ typedef struct Produto{
 void cadastrarProduto(Produto **lista);
 void listarProdutos(Produto *lista);
 Produto* buscarProduto(Produto *lista);
+int codigoExiste(Produto *lista, int codigo);
 void editarProduto(Produto *lista);
 void removerProduto(Produto **lista);
 
