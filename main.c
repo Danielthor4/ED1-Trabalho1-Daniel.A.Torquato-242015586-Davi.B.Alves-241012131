@@ -39,6 +39,7 @@ int main() {
                 printf("3. Buscar cliente pelo CPF\n");
                 printf("4. Editar dados de um cliente\n");
                 printf("5. Remover cliente\n");
+                printf("6. Voltar ao menu anterior\n");
                 printf("0. Sair\n");
 
                 scanf("%d", &escolha_cliente);
@@ -59,11 +60,14 @@ int main() {
                     case 5:
                         removerCliente(&listaClientes);
                         break;
+                    case 6:
+                        break;
                     case 0:
-                        printf("Saindo do sistema...\n");
+                        printf("\n");
                         continuar = 0;
                         break;
-                    default:
+                    default:    
+                        printf("\n");
                         printf("Opcao invalida! Tente novamente.\n");
                         break;
                 }
@@ -78,6 +82,7 @@ int main() {
                 printf("3. Buscar produto pelo codigo\n");
                 printf("4. Editar dados de um produto\n");
                 printf("5. Remover produto\n");
+                printf("6. Voltar ao menu anterior\n");
                 printf("0. Sair\n");
 
                 scanf("%d", &escolha_produto);
@@ -98,11 +103,14 @@ int main() {
                     case 5:
                         removerProduto(&listaProdutos);
                         break;
+                    case 6:
+                        break;
                     case 0:
-                        printf("Saindo do sistema...\n");
+                        printf("\n");
                         continuar = 0;
                         break;
                     default:
+                        printf("\n");
                         printf("Opcao invalida! Tente novamente.\n");
                         break;
                 }
@@ -115,6 +123,7 @@ int main() {
                 printf("1. Incluir produtos que deseja no carrinho\n");
                 printf("2. Listar produtos do carrinho do cliente\n");
                 printf("3. Retirar produtos do carrinho do cliente\n");
+                printf("4. Voltar ao menu anterior\n");
                 printf("0. Sair\n");
 
                 scanf("%d", &escolha_compra);
@@ -129,28 +138,34 @@ int main() {
                     case 3:
                         removerCompra(&listaCompras);
                         break;
+                    case 4:
+                        break;
                     case 0:
-                        printf("Saindo do sistema...\n");
+                        printf("\n");
                         continuar = 0;
                         break;
                     default:
+                        printf("\n");
                         printf("Opcao invalida! Tente novamente.\n");
                         break;
                 }
                 break;
             case 0:
-                printf("Saindo do sistema...\n");
+                printf("\n");
                 continuar = 0;
                 break;
             default:
+                printf("\n");
                 printf("Opcao invalida! Tente novamente.\n");
                 break;
         }
         
         if (continuar == 1) {
-            printf("\nDeseja continuar no sistema? (0 - Sim / 1 - Nao): ");
+            printf("\nDeseja continuar no sistema? (1 - Sim / 0 - Nao): ");
             scanf("%d", &continuar); 
+            printf("\n");
         }
     }
+    printf("Saindo do sistema...\n");
     return 0;
 }
