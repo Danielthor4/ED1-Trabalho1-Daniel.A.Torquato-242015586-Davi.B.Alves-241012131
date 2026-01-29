@@ -16,9 +16,9 @@ int main() {
     int escolha_cliente;
     int escolha_produto;
     int escolha_compra;
-    int continuar = 0;
+    int continuar = 1;
 
-    while (continuar == 0) {
+    while (continuar == 1) {
         
         printf("Escolha a sua opcao:\n");
         printf("1. Gerenciamento de clientes\n");
@@ -61,7 +61,7 @@ int main() {
                         break;
                     case 0:
                         printf("Saindo do sistema...\n");
-                        continuar = 1;
+                        continuar = 0;
                         break;
                     default:
                         printf("Opcao invalida! Tente novamente.\n");
@@ -100,7 +100,7 @@ int main() {
                         break;
                     case 0:
                         printf("Saindo do sistema...\n");
-                        continuar = 1;
+                        continuar = 0;
                         break;
                     default:
                         printf("Opcao invalida! Tente novamente.\n");
@@ -131,7 +131,7 @@ int main() {
                         break;
                     case 0:
                         printf("Saindo do sistema...\n");
-                        continuar = 1;
+                        continuar = 0;
                         break;
                     default:
                         printf("Opcao invalida! Tente novamente.\n");
@@ -140,14 +140,14 @@ int main() {
                 break;
             case 0:
                 printf("Saindo do sistema...\n");
-                continuar = 1;
+                continuar = 0;
                 break;
             default:
                 printf("Opcao invalida! Tente novamente.\n");
                 break;
         }
         
-        if (continuar == 0) {
+        if (continuar == 1) {
             printf("\nDeseja continuar no sistema? (0 - Sim / 1 - Nao): ");
             scanf("%d", &continuar); 
         }

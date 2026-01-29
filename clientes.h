@@ -2,9 +2,11 @@
 #define CLIENTES_H
 
 typedef struct Cliente {
-    int cpf;
+    char cpf[15];
     char nome[100];
-    int telefone;
+    char email[100];
+    char telefone[20];
+    char dataNascimento[11]; 
     struct Cliente *prox;
 } Cliente;
 
