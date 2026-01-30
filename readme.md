@@ -50,13 +50,21 @@ Utilize o comando abaixo no terminal, dentro da pasta do projeto:
 
 ```bash
 gcc -Wall -Wextra -g3 main.c clientes.c produtos.c compras.c utils.c -o main.exe
-🔹 Execução
+```
+
+###🔹 Execução
+
 Após a compilação, execute:
 
+```bash
 ./main.exe
-🔹 Makefile
+```
+
+###🔹 Makefile
+
 Também existem comandos Makefile disponíveis:
 
+```bash
 build — Compilar o projeto
 
 run — Executar o projeto
@@ -66,3 +74,4 @@ build-run — Compilar e executar
 clean — Apagar o executável
 
 rebuild — Apagar, compilar e executar
+```
