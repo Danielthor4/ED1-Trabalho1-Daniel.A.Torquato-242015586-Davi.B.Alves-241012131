@@ -52,7 +52,7 @@ Utilize o comando abaixo no terminal, dentro da pasta do projeto:
 gcc -Wall -Wextra -g3 main.c clientes.c produtos.c compras.c utils.c -o main.exe
 ```
 
-###🔹 Execução
+### 🔹 Execução
 
 Após a compilação, execute:
 
@@ -60,7 +60,7 @@ Após a compilação, execute:
 ./main.exe
 ```
 
-###🔹 Makefile
+### 🔹 Makefile
 
 Também existem comandos Makefile disponíveis:
 
