@@ -21,6 +21,8 @@ int main() {
 
     while (continuar == 1) {
         
+        printf("\n");
+        printf("===== Sistema de Gerenciamento =====\n");
         printf("Escolha a sua opcao:\n");
         printf("1. Gerenciamento de clientes\n");
         printf("2. Gerenciamento de produtos\n");
@@ -35,6 +37,7 @@ int main() {
             case 1:
                 printf("\n");
                 printf("Voce escolheu a opcao 1 - Gerenciamento de clientes\n");
+                printf("===== Menu de Clientes =====\n");
                 printf("Escolha a sua proxima opcao:\n");
                 printf("1. Cadastrar cliente\n");
                 printf("2. Listar todos os clientes\n");
@@ -79,6 +82,7 @@ int main() {
             case 2:
                 printf("\n");
                 printf("Voce escolheu a opcao 2 - Produtos\n");
+                printf("===== Menu de Produtos =====\n");
                 printf("Escolha a sua proxima opcao:\n");
                 printf("1. Cadastrar produto\n");
                 printf("2. Listar todos os produtos\n");
@@ -123,6 +127,7 @@ int main() {
             case 3:
                 printf("\n");
                 printf("Voce escolheu a opcao 3 - Modo compra\n");
+                printf("===== Menu de Compras =====\n");
                 printf("Escolha a sua proxima opcao:\n");
                 printf("1. Incluir produtos que deseja no carrinho\n");
                 printf("2. Listar produtos do carrinho do cliente\n");
@@ -169,7 +174,6 @@ int main() {
             printf("\nDeseja continuar no sistema? (1 - Sim / 0 - Nao): ");
             scanf("%d", &continuar);
             limparBuffer(); 
-            printf("\n");
         }
     }
     printf("Saindo do sistema...\n");
