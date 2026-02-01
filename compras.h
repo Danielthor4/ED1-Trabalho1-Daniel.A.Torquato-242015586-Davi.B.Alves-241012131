@@ -1,14 +1,15 @@
 #ifndef COMPRAS_H
 #define COMPRAS_H
 
+#include "produtos.h"
+
 typedef struct Compra {
-    int cpfCliente;
-    int codigoProduto;
+    Produto *produto;
     int quantidade;
     struct Compra *prox;
 } Compra;
 
-void incluirCompra(Compra **lista);
+void incluirCompra(Compra **lista, Produto *listaProdutos);
 void listarCompras(Compra *lista);
 void removerCompra(Compra **lista);
 

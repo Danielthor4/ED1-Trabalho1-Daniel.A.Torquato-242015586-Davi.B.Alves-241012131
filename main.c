@@ -140,7 +140,7 @@ int main() {
 
                 switch (escolha_compra) {
                     case 1:
-                        incluirCompra(&listaCompras);
+                        incluirCompra(&listaCompras, listaProdutos);
                         break;
                     case 2:
                         listarCompras(listaCompras);
