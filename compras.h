@@ -2,6 +2,8 @@
 #define COMPRAS_H
 
 #include "produtos.h"
+typedef struct Cliente Cliente;
+
 
 typedef struct Compra {
     Produto *produto;
@@ -9,8 +11,10 @@ typedef struct Compra {
     struct Compra *prox;
 } Compra;
 
-void incluirCompra(Compra **lista, Produto *listaProdutos);
-void listarCompras(Compra *lista);
-void removerCompra(Compra **lista);
+void incluirCompra(Cliente *cliente, Produto *listaProdutos);
+void listarCompras(Cliente *cliente);
+void removerCompra(Cliente *cliente);
+void liberarCarrinho(Cliente *cliente);
+
 
 #endif

@@ -1,12 +1,19 @@
 #include "compras.h"
+#include "clientes.h"
 #include "utils.h"
 #include <stdio.h>
 #include <stdlib.h>
 
-void incluirCompra(Compra **lista, Produto *listaProdutos) {
-    int qtd;
-    Produto *produtoAtual = buscarProduto(listaProdutos);
+void incluirCompra(Cliente *cliente, Produto *listaProdutos) {
 
+    if (cliente == NULL) {
+        printf("Nenhum cliente selecionado.\n");
+        return;
+    }
+
+    int qtd;
+
+    Produto *produtoAtual = buscarProduto(listaProdutos);
     if (produtoAtual == NULL) return;
 
     printf("Digite a quantidade: ");
@@ -18,7 +25,7 @@ void incluirCompra(Compra **lista, Produto *listaProdutos) {
         return;
     }
 
-    Compra *aux = *lista;
+    Compra *aux = cliente->carrinho;
     while (aux != NULL) {
         if (aux->produto->codigo == produtoAtual->codigo) {
             aux->quantidade += qtd;
@@ -31,21 +38,26 @@ void incluirCompra(Compra **lista, Produto *listaProdutos) {
 
     Compra *nova = malloc(sizeof(Compra));
     if (nova == NULL) {
-        printf("Erro ao alocar memoria para nova compra.\n");
+        printf("Erro ao alocar memoria.\n");
         return;
     }
+
     nova->produto = produtoAtual;
     nova->quantidade = qtd;
-    nova->prox = *lista;
-    *lista = nova;
+    nova->prox = cliente->carrinho;
+    cliente->carrinho = nova;
 
     produtoAtual->quantidade -= qtd;
     printf("Produto adicionado ao carrinho.\n");
 }
 
-void listarCompras(Compra *lista)
-{
-    Compra *aux = lista;
+void listarCompras(Cliente *cliente){
+    if (cliente == NULL) {
+        printf("Nenhum cliente selecionado.\n");
+        return;
+    }
+
+    Compra *aux = cliente->carrinho;
     float total = 0.0;
 
     if (aux == NULL) {
@@ -53,7 +65,7 @@ void listarCompras(Compra *lista)
         return;
     }
 
-    printf("\n--- CARRINHO DE COMPRAS ---\n");
+    printf("\n--- CARRINHO DE %s ---\n", cliente->nome);
 
     while (aux != NULL) {
         float subtotal = aux->quantidade * aux->produto->preco;
@@ -72,40 +84,67 @@ void listarCompras(Compra *lista)
     printf("TOTAL DA COMPRA: R$ %.2f\n", total);
 }
 
-void removerCompra(Compra **lista)
-{
-    if (*lista == NULL){
-        printf("\nNenhum produto no carrinho para remover.\n");
+void removerCompra(Cliente *cliente) {
+    if (cliente == NULL) {
+        printf("Nenhum cliente selecionado.\n");
+        return;
+    }
+
+    if (cliente->carrinho == NULL) {
+        printf("Carrinho vazio.\n");
         return;
     }
 
     int codigo;
-    printf("\nDigite o codigo do produto que deseja remover do carrinho: ");
+    printf("Digite o codigo do produto: ");
     scanf("%d", &codigo);
     limparBuffer();
 
-    Compra *atual = *lista;
+    Compra *atual = cliente->carrinho;
     Compra *anterior = NULL;
 
-    while (atual != NULL && atual->produto->codigo != codigo){
+    while (atual != NULL && atual->produto->codigo != codigo) {
         anterior = atual;
         atual = atual->prox;
     }
 
-    if (atual == NULL){
-        printf("\nProduto nao encontrado no carrinho para remover.\n");
+    if (atual == NULL) {
+        printf("Produto nao encontrado no carrinho.\n");
         return;
     }
 
     if (anterior == NULL){
-        *lista = atual->prox;
-    } else {
+        cliente->carrinho = atual->prox;
+    } 
+    else{ 
         anterior->prox = atual->prox;
     }
+        
+    
 
     atual->produto->quantidade += atual->quantidade;
     free(atual);
 
-    printf("\nProduto removido do carrinho com sucesso!\n");
+    printf("Produto removido do carrinho.\n");
 }
+
+void liberarCarrinho(Cliente *cliente) {
+    if (cliente == NULL || cliente->carrinho == NULL) {
+        return;
+    }
+
+    Compra *atual = cliente->carrinho;
+    Compra *aux;
+
+    while (atual != NULL) {
+        aux = atual;
+        atual = atual->prox;
+
+        aux->produto->quantidade += aux->quantidade;
+        free(aux);
+    }
+
+    cliente->carrinho = NULL;
+}
+
 

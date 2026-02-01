@@ -3,9 +3,12 @@
 #include <string.h>
 #include "clientes.h"
 #include "utils.h"
+#include "compras.h"
+
 
 void cadastrarCliente(Cliente **lista) {
     Cliente *novo = (Cliente *) malloc(sizeof(Cliente));
+    
 
     if (novo == NULL) {
         printf("Erro ao alocar memoria!\n");
@@ -34,6 +37,7 @@ void cadastrarCliente(Cliente **lista) {
     scanf(" %10[^\n]", novo->dataNascimento);
     limparBuffer();
 
+    novo->carrinho = NULL;
     novo->prox = *lista;
     *lista = novo;
 
@@ -204,7 +208,33 @@ void removerCliente(Cliente **lista) {
         anterior->prox = atual->prox;
     }
 
+    liberarCarrinho(atual);
     free(atual);
 
     printf("\nCliente removido com sucesso!\n");
+}
+
+Cliente *escolherCliente(Cliente **lista) {
+    if (lista == NULL || *lista == NULL) {
+        printf("Nenhum cliente cadastrado.\n");
+        return NULL;
+    }
+
+    char cpf[15];
+    printf("\nDigite o CPF do cliente: ");
+    scanf(" %14[^\n]", cpf);
+    limparBuffer();
+
+    Cliente *atual = *lista;
+
+    while (atual != NULL) {
+        if (strcmp(atual->cpf, cpf) == 0) {
+            printf("\nCliente selecionado: %s\n", atual->nome);
+            return atual;
+        }
+        atual = atual->prox;
+    }
+
+    printf("\nCliente nao encontrado.\n");
+    return NULL;
 }

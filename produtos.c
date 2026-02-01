@@ -108,7 +108,7 @@ void editarProduto(Produto *lista){
         return;
     }
 
-    printf("\nDigite o novo nome do produto");
+    printf("\nDigite o novo nome do produto: ");
     scanf(" %99[^\n]", produto->nome);
     limparBuffer();
 

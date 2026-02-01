@@ -11,7 +11,6 @@ int main() {
 
     Cliente *listaClientes = NULL;
     Produto *listaProdutos = NULL;
-    Compra *listaCompras = NULL;
 
     int funcionalidade;
     int escolha_cliente;
@@ -125,6 +124,18 @@ int main() {
                 break;
 
             case 3:
+                if (listaClientes == NULL) {
+                    printf("\nNenhum cliente cadastrado. Cadastre um cliente antes de entrar no modo compra.\n");
+                    break;
+                }
+                
+                Cliente *clienteAtual = escolherCliente(&listaClientes);
+                
+                if (clienteAtual == NULL) {
+                    printf("\nNenhum cliente selecionado. Voltando ao menu principal.\n");
+                    break;
+                }
+                
                 printf("\n");
                 printf("Voce escolheu a opcao 3 - Modo compra\n");
                 printf("===== Menu de Compras =====\n");
@@ -140,13 +151,13 @@ int main() {
 
                 switch (escolha_compra) {
                     case 1:
-                        incluirCompra(&listaCompras, listaProdutos);
+                        incluirCompra(clienteAtual, listaProdutos);
                         break;
                     case 2:
-                        listarCompras(listaCompras);
+                        listarCompras(clienteAtual);
                         break;
                     case 3:
-                        removerCompra(&listaCompras);
+                        removerCompra(clienteAtual);
                         break;
                     case 4:
                         break;
