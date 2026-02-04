@@ -102,7 +102,6 @@ void editarProduto(Produto *lista){
     Produto *produto = buscarProduto(lista);
 
     if (produto == NULL){
-        printf("\nProduto nao encontrado para editar.\n");
         return;
     }
 
