@@ -50,8 +50,6 @@ int codigoExiste(Produto *lista, int codigo){
 }
 
 void listarProdutos(Produto *lista){
-    printf("\n");
-    printf("Funcao listarProdutos chamada!\n");
     
     if (lista == NULL) {
         printf("Nenhum produto cadastrado.\n");
